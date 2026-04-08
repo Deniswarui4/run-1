@@ -59,7 +59,7 @@ export default function AdminStatsPage() {
   const loadStats = useCallback(async () => {
     setLoading(true);
     try {
-      const data = await apiClient.getPlatformStats(startDate, endDate);
+      const data = await apiClient.getPlatformStats({ start: startDate, end: endDate });
       setStats(data);
     } catch (error) {
       console.error('Failed to load stats:', error);
