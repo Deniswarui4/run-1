@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import { DashboardLayout } from '@/components/dashboard-layout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -56,11 +56,7 @@ export default function AdminStatsPage() {
     }
   }, [user, authLoading, router]);
 
-  useEffect(() => {
-    loadStats();
-  }, [startDate, endDate, loadStats]);
-
-  const loadStats = async () => {
+  const loadStats = useCallback(async () => {
     setLoading(true);
     try {
       const data = await apiClient.getPlatformStats(startDate, endDate);
@@ -71,7 +67,11 @@ export default function AdminStatsPage() {
     } finally {
       setLoading(false);
     }
-  };
+  }, [startDate, endDate]);
+
+  useEffect(() => {
+    loadStats();
+  }, [loadStats]);
 
   if (authLoading || loading) {
     return (
