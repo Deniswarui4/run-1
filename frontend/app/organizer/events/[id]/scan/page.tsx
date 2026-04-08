@@ -29,6 +29,7 @@ export default function ScanTicketsPage() {
 
     useEffect(() => {
         loadEvent();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [eventId]);
 
     const loadEvent = async () => {

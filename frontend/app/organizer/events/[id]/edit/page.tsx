@@ -13,13 +13,13 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Calendar, MapPin, AlignLeft, Clock, Sparkles, Video } from 'lucide-react';
+import { Calendar, MapPin, AlignLeft, Sparkles, Video } from 'lucide-react';
 import { toast } from 'sonner';
 
 export default function EditEventPage() {
   const params = useParams();
   const router = useRouter();
-  const { user } = useAuth();
+
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState('');
@@ -54,6 +54,7 @@ export default function EditEventPage() {
       loadEvent(params.id as string);
       loadCategories();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params.id]);
 
   // Combine date and time into proper ISO format

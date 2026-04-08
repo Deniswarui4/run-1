@@ -11,9 +11,9 @@ import { Footer } from '@/components/footer';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { Calendar, MapPin, Download, QrCode, ArrowLeft, Clock, User, Ticket as TicketIcon } from 'lucide-react';
+import { Calendar, MapPin, Download, QrCode, ArrowLeft, User, Ticket as TicketIcon } from 'lucide-react';
 import { toast } from 'sonner';
 import { useCurrency } from '@/lib/currency';
 

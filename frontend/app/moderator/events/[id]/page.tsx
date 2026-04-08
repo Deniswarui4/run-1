@@ -35,6 +35,7 @@ export default function ModeratorEventReviewPage() {
         loadEventForReview(params.id as string);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [user, authLoading, router, params.id]);
 
   const loadEventForReview = async (id: string) => {

@@ -58,7 +58,7 @@ export default function AdminStatsPage() {
 
   useEffect(() => {
     loadStats();
-  }, [startDate, endDate]);
+  }, [startDate, endDate, loadStats]);
 
   const loadStats = async () => {
     setLoading(true);

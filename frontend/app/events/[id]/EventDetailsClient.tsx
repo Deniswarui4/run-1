@@ -25,7 +25,7 @@ export default function EventDetailsClient() {
   const { formatAmount } = useCurrency();
   const [event, setEvent] = useState<Event | null>(null);
   const [loading, setLoading] = useState(true);
-  const { cart, addToCart, removeFromCart, updateQuantity, clearCart, syncing } = useCart(event?.id ?? null);
+  const { cart, addToCart, removeFromCart, updateQuantity, clearCart } = useCart(event?.id ?? null);
   const [purchasing, setPurchasing] = useState(false);
   const [shareModalOpen, setShareModalOpen] = useState(false);
 
@@ -54,9 +54,7 @@ export default function EventDetailsClient() {
     return cart.reduce((total, item) => total + (item.ticket_type.price * item.quantity), 0);
   };
 
-  const getCartItemsCount = () => {
-    return cart.reduce((total, item) => total + item.quantity, 0);
-  };
+
 
   const handleCheckout = async () => {
     if (!event || cart.length === 0) return;
