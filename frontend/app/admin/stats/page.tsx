@@ -14,7 +14,7 @@ import { BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, L
 import { DollarSign, Ticket, Users, Calendar, TrendingUp, Award } from 'lucide-react';
 import { toast } from 'sonner';
 
-interface PlatformStats {
+interface ExtendedPlatformStats {
   total_users: number;
   total_events: number;
   total_tickets_sold: number;
@@ -41,7 +41,7 @@ interface PlatformStats {
 export default function AdminStatsPage() {
   const router = useRouter();
   const { user, loading: authLoading } = useAuth();
-  const [stats, setStats] = useState<PlatformStats | null>(null);
+  const [stats, setStats] = useState<ExtendedPlatformStats | null>(null);
   const [loading, setLoading] = useState(true);
   const [startDate, setStartDate] = useState(() => {
     const date = new Date();
