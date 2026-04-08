@@ -246,7 +246,10 @@ export default function OrganizerStatsPage() {
                         cx="50%"
                         cy="50%"
                         outerRadius={100}
-                        label={(entry) => `${entry.name}: KES ${entry.gross_revenue.toLocaleString()}`}
+                        label={(props) => {
+                          const entry = stats.ticket_type_breakdown[props.index];
+                          return `${entry.name}: KES ${entry.gross_revenue.toLocaleString()}`;
+                        }}
                       >
                         {stats.ticket_type_breakdown.map((_, index) => (
                           <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />

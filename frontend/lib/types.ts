@@ -64,7 +64,7 @@ export interface Event {
   category_info?: Category;
   image_url?: string;
   video_url?: string;
-  status: 'draft' | 'pending' | 'approved' | 'published' | 'cancelled';
+  status: EventStatus;
   is_featured: boolean;
   featured_type?: FeaturedType;
   organizer_id: string;
